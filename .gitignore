@@ -1,0 +1,4 @@
+__pycache__
+shorturl.db
+*.pyc
+.idea/
