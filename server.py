@@ -31,9 +31,11 @@ class UrlHandler(tornado.web.RequestHandler):
             data = tornado.escape.json_decode(self.request.body)
         except json.decoder.JSONDecodeError:
             self.write(json.dumps({"code": 0, "result": "参数格式不正确"}, ensure_ascii=False))
+            print("参数格式不正确.", self.request.body)
             raise tornado.web.Finish
         except:
             self.write(json.dumps({"code": 0, "result": "其它错误"}, ensure_ascii=False))
+            print("其它错误.", self.request.body)
             raise tornado.web.Finish
 
         if not data or 'url' not in data:
